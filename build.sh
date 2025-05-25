@@ -69,7 +69,19 @@ poudriere_ports() {
   fi
 }
 
+poudriere_overlay() {
+  # Only register overlay if not already registered
+  poudriere -e "$POUDRIERE_ETC" ports -l | grep -q ngstep_overlay
+  if [ $? -ne 0 ]; then
+    echo "Registering existing overlay ports tree: ngstep_overlay"
+    poudriere -e "$POUDRIERE_ETC" ports -c -p ngstep_overlay -m null -M "$(pwd)/ports-overlay"
+  else
+    echo "Overlay ports tree already registered: ngstep_overlay"
+  fi
+}
+
 create_datasets
 install_poudriere_conf
 poudriere_jail
 poudriere_ports
+poudriere_overlay
