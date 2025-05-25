@@ -80,8 +80,13 @@ poudriere_overlay() {
   fi
 }
 
+poudriere_bulk() {
+  poudriere -e "$POUDRIERE_ETC" bulk -b latest -j ngstep_base -p ngstep_ports -O ngstep_overlay lang/libobjc2-devel
+}
+
 create_datasets
 install_poudriere_conf
 poudriere_jail
 poudriere_ports
 poudriere_overlay
+poudriere_bulk
