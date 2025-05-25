@@ -1,6 +1,6 @@
 PORTNAME=	libobjc2
-DISTVERSIONPREFIX=v
-DISTVERSION=	2.2.1
+DISTVERSION=	g20250525
+PKGNAMESUFFIX=  -devel
 CATEGORIES=	lang devel gnustep
 
 MAINTAINER=	ports@FreeBSD.org
@@ -13,7 +13,8 @@ BUILD_DEPENDS=	${LOCALBASE}/include/tsl/robin_map.h:devel/robin-map
 USES=		cmake compiler objc:compiler
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	gnustep
+GH_ACCOUNT=	ngstep
+GH_TAGNAME= 1a0f5ac
 
 USE_LDCONFIG=	yes
 
