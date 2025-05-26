@@ -31,6 +31,5 @@ CONFIGURE_ARGS+= \
 
 GNU_CONFIGURE_PREFIX= ${GNUSTEP_PREFIX}
 NO_ARCH=	yes
-PLIST_FILES=	# empty
 
 .include <bsd.port.mk>
