@@ -2,7 +2,7 @@ PORTNAME=	ngstep-make
 DISTVERSION=	g20250526
 CATEGORIES=	devel gnustep
 
-MAINTAINER=	pkgdemonteam@gmail.combo
+MAINTAINER=	jpm820@proton.me
 COMMENT=	NgSTEP makefile package
 WWW=		http://github.com/ngstep/
 
