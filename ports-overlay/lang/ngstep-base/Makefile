@@ -1,4 +1,4 @@
-PORTNAME=	gnustep-base
+PORTNAME=	ngstep-base
 DISTVERSION=	g20250526
 CATEGORIES=	lang devel gnustep
 
@@ -8,6 +8,7 @@ WWW=		http://github.com/ngstep/
 
 LICENSE=	GPLv3 LGPL3
 LICENSE_COMB=	multi
+CONFLICTS=	gnustep-base
 
 LIB_DEPENDS=	libffi.so:devel/libffi \
 		libcurl.so:ftp/curl \
