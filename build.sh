@@ -81,7 +81,7 @@ poudriere_overlay() {
 }
 
 poudriere_bulk() {
-  poudriere -e "$POUDRIERE_ETC" bulk -b latest -j ngstep_base -p ngstep_ports -O ngstep_overlay lang/libobjc2-devel
+  poudriere -e "$POUDRIERE_ETC" bulk -b latest -j ngstep_base -p ngstep_ports -O ngstep_overlay devel/ngstep-make
 }
 
 create_datasets
