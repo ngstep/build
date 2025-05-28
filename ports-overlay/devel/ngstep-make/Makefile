@@ -11,7 +11,6 @@ CONFLICTS=	gnustep-make
 
 USES=		ngstep objc
 GNU_CONFIGURE=	yes
-GNUSTEP_PREFIX=	/
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	ngstep
@@ -19,7 +18,6 @@ GH_TAGNAME= 0661986
 
 MAKE_FLAGS=	OPTFLAG="${CFLAGS}"
 CONFIGURE_ENV+=	INSTALL_PROGRAM="${INSTALL} -c" INSTALL_DATA="${INSTALL} -c"
-MAKE_ENV+=	NGSTEP_INSTALLATION_DOMAIN=SYSTEM
 
 CONFIGURE_ARGS+= \
 		--with-config-file=/System/Library/Preferences/GNUstep.conf \

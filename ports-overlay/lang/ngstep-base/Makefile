@@ -15,9 +15,9 @@ GH_ACCOUNT=	ngstep
 GH_TAGNAME=	198b18c
 
 LIB_DEPENDS=	libffi.so:devel/libffi \
-		libcurl.so:ftp/curl \
-		libgcrypt.so:security/libgcrypt \
-		libgmp.so:math/gmp
+				libcurl.so:ftp/curl \
+				libgcrypt.so:security/libgcrypt \
+				libgmp.so:math/gmp
 
 RUN_DEPENDS=	${GNUSTEP_PREFIX}System/Library/Makefiles/GNUstep.sh:devel/ngstep-make
 
