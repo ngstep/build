@@ -22,11 +22,8 @@ CONFIGURE_ENV+=	INSTALL_PROGRAM="${INSTALL} -c" INSTALL_DATA="${INSTALL} -c"
 MAKE_ENV+=	NGSTEP_INSTALLATION_DOMAIN=SYSTEM
 
 CONFIGURE_ARGS+= \
-		--with-thread-lib=-pthread \
 		--with-config-file=/System/Library/Preferences/GNUstep.conf \
 		--with-layout=ngstep \
-		--enable-objc-nonfragile-abi \
-		--enable-native-objc-exceptions \
 		--with-library-combo=ng-gnu-gnu
 
 GNU_CONFIGURE_PREFIX= ${GNUSTEP_PREFIX}

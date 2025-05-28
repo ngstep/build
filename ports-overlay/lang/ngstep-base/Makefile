@@ -32,13 +32,10 @@ USE_LDCONFIG=	${GNUSTEP_SYSTEM_LIBRARIES}
 GNU_CONFIGURE=	yes
 
 MAKE_FLAGS=	OPTFLAG="${CFLAGS}"
-CONFIGURE_ARGS= --disable-procfs \
-                --with-installation-domain=SYSTEM
-CONFIGURE_ENV=  OBJCFLAGS='-fobjc-runtime=gnustep-2.0 -fblocks' \
-                ac_cv_header_bfd_h=no ac_cv_lib_bfd_bfd_openr=no \
+CONFIGURE_ARGS= --with-installation-domain=SYSTEM
+CONFIGURE_ENV=  ac_cv_header_bfd_h=no ac_cv_lib_bfd_bfd_openr=no \
 				GNUSTEP_MAKEFILES=${GNUSTEP_PREFIX}/System/Library/Makefiles
-MAKE_ENV+=	OBJCFLAGS='-fobjc-runtime=gnustep-2.0 -fblocks' \
-			NGSTEP_INSTALLATION_DOMAIN=SYSTEM \
+MAKE_ENV+=	NGSTEP_INSTALLATION_DOMAIN=SYSTEM \
 			GNUSTEP_MAKEFILES=${GNUSTEP_PREFIX}/System/Library/Makefiles
 
 GNU_CONFIGURE_PREFIX= ${GNUSTEP_PREFIX}
