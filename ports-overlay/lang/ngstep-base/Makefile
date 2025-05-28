@@ -14,15 +14,13 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	ngstep
 GH_TAGNAME=	198b18c
 
-GNUSTEP_PREFIX=	/
-
 LIB_DEPENDS=	libffi.so:devel/libffi \
 		libcurl.so:ftp/curl \
 		libgcrypt.so:security/libgcrypt \
 		libgmp.so:math/gmp
 
-BUILD_DEPENDS=	${GNUSTEP_PREFIX}/System/Library/Makefiles/GNUstep.sh:devel/ngstep-make
-RUN_DEPENDS=	${GNUSTEP_PREFIX}/System/Library/Makefiles/GNUstep.sh:devel/ngstep-make
+BUILD_DEPENDS=	${GNUSTEP_PREFIX}System/Library/Makefiles/GNUstep.sh:devel/ngstep-make
+RUN_DEPENDS=	${GNUSTEP_PREFIX}System/Library/Makefiles/GNUstep.sh:devel/ngstep-make
 
 USES=		pkgconfig iconv gnome ngstep
 USE_GNOME=	libxml2 libxslt
@@ -33,10 +31,8 @@ GNU_CONFIGURE=	yes
 
 MAKE_FLAGS=	OPTFLAG="${CFLAGS}"
 CONFIGURE_ARGS= --with-installation-domain=SYSTEM
-CONFIGURE_ENV=  ac_cv_header_bfd_h=no ac_cv_lib_bfd_bfd_openr=no \
-				GNUSTEP_MAKEFILES=${GNUSTEP_PREFIX}/System/Library/Makefiles
-MAKE_ENV+=	NGSTEP_INSTALLATION_DOMAIN=SYSTEM \
-			GNUSTEP_MAKEFILES=${GNUSTEP_PREFIX}/System/Library/Makefiles
+CONFIGURE_ENV=  ac_cv_header_bfd_h=no ac_cv_lib_bfd_bfd_openr=no
+MAKE_ENV+=	NGSTEP_INSTALLATION_DOMAIN=SYSTEM
 
 GNU_CONFIGURE_PREFIX= ${GNUSTEP_PREFIX}
 NO_ARCH=	yes
