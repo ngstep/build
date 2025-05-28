@@ -11,6 +11,9 @@ ports:
 install:
 	@sh -c ". ${FUNCS}; install_target"
 
+uninstall:
+	@sh -c ". ${FUNCS}; uninstall_target"
+
 iso:
 	@sh -c ". ${FUNCS}; iso_target"
 
