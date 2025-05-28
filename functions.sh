@@ -62,7 +62,11 @@ ports_target() {
 
 install_target() {
   ports_target
-  echo "[TODO] Register pkg repo on host"
+  echo "[TODO] Register pkg repo on host and install packages"
+}
+
+uninstall_target() {
+  echo "[TODO] Remove packages from host and pkg repo"
 }
 
 iso_target() {

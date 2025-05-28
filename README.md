@@ -16,8 +16,8 @@ It automates port building, jail setup, and overlay integration, and prepares pa
 
 ## Directory Layout
 ```
-├── Makefile # BSD make-compatible targets: ports, install, iso, clean
-├── functions.sh # Main shell logic: ZFS setup, poudriere, etc.
+├── Makefile # targets: ports, install, uninstall, iso, clean
+├── functions.sh # Main shell logic: ZFS setup, poudriere, etc
 ├── poudriere.conf # Default poudriere config used for this build
 ├── ngstep-packages.list # List of NgSTEP ports to build with poudriere
 └── ports-overlay/ # Overlay for poudriere containing ports for NgSTEP
@@ -35,6 +35,11 @@ sudo make ports
 ### 2. Install packages to host (WIP)
 ```
 sudo make install
+```
+
+### 4. Uninstall packages from host (WIP)
+```
+sudo make uninstall
 ```
 
 ### 3. Create ISO image (WIP)
