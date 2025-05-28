@@ -1,5 +1,5 @@
 PORTNAME=	ngstep-base
-DISTVERSION=	g20250526
+DISTVERSION=	20250526
 CATEGORIES=	lang devel gnustep
 
 MAINTAINER=	jpm820@proton.me
