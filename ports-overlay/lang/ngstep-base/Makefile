@@ -19,23 +19,12 @@ LIB_DEPENDS=	libffi.so:devel/libffi \
 		libgcrypt.so:security/libgcrypt \
 		libgmp.so:math/gmp
 
-BUILD_DEPENDS=	${GNUSTEP_PREFIX}System/Library/Makefiles/GNUstep.sh:devel/ngstep-make
 RUN_DEPENDS=	${GNUSTEP_PREFIX}System/Library/Makefiles/GNUstep.sh:devel/ngstep-make
 
 USES=		pkgconfig iconv gnome ngstep
 USE_GNOME=	libxml2 libxslt
 USE_NGSTEP=    build
 USE_LDCONFIG=	${GNUSTEP_SYSTEM_LIBRARIES}
-
-GNU_CONFIGURE=	yes
-
-MAKE_FLAGS=	OPTFLAG="${CFLAGS}"
-CONFIGURE_ARGS= --with-installation-domain=SYSTEM
-CONFIGURE_ENV=  ac_cv_header_bfd_h=no ac_cv_lib_bfd_bfd_openr=no
-MAKE_ENV+=	NGSTEP_INSTALLATION_DOMAIN=SYSTEM
-
-GNU_CONFIGURE_PREFIX= ${GNUSTEP_PREFIX}
-NO_ARCH=	yes
 
 OPTIONS_DEFINE=		ICU GNUTLS
 OPTIONS_RADIO=		ZEROCONF
