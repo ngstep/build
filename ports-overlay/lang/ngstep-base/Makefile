@@ -20,25 +20,25 @@ LIB_DEPENDS=	libffi.so:devel/libffi \
 BUILD_DEPENDS=	${GNUSTEP_PREFIX}/System/Library/Makefiles/GNUstep.sh:devel/ngstep-make
 RUN_DEPENDS=	${GNUSTEP_PREFIX}/System/Library/Makefiles/GNUstep.sh:devel/ngstep-make
 
-USES=		pkgconfig iconv gnome
+GNU_CONFIGURE=	yes
+USES=		pkgconfig iconv gnome ngstep
 USE_GNOME=	libxml2 libxslt
+USE_NGSTEP=    build
 USE_LDCONFIG=	${GNUSTEP_SYSTEM_LIBRARIES}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	ngstep
 GH_TAGNAME=	198b18c
 
-STAGEHEADER=	${STAGEDIR}${GNUSTEP_PREFIX}/System/Library/Headers
-
 CONFIGURE_ARGS=	--disable-procfs \
-		--with-installation-domain=SYSTEM
+		--with-installation-domain=SYSTEM \
+		--enable-objc-nonfragile-abi
 
 CONFIGURE_ENV=	OBJCFLAGS='-fobjc-runtime=gnustep-2.0 -fblocks' \
 		ac_cv_header_bfd_h=no ac_cv_lib_bfd_bfd_openr=no \
 		GNUSTEP_MAKEFILES=${GNUSTEP_PREFIX}/System/Library/Makefiles
 
-MAKE_ENV=	GNUSTEP_MAKEFILES=${GNUSTEP_PREFIX}/System/Library/Makefiles \
-		GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
+MAKE_ENV=	GNUSTEP_MAKEFILES=${GNUSTEP_PREFIX}/System/Library/Makefiles
 
 PLIST_SUB=	BASEVERSION=${DISTVERSION:R}
 
@@ -69,7 +69,5 @@ CONFIGURE_ARGS+=	--with-zeroconf-api=mdns
 .else
 CONFIGURE_ARGS+=	--disable-zeroconf
 .endif
-
-PLIST_FILES=	# empty
 
 .include <bsd.port.mk>

@@ -9,7 +9,7 @@ WWW=		http://github.com/ngstep/
 LICENSE=	GPLv3
 CONFLICTS=	gnustep-make
 
-USES=		gnustep objc
+USES=		ngstep objc
 GNU_CONFIGURE=	yes
 GNUSTEP_PREFIX=	/
 
