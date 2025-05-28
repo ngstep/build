@@ -62,12 +62,12 @@ PLIST_SUB+=	MAJORVERSION=${PORTVERSION:C/([0-9]).*/\1/1}
 PLIST_SUB+=	LIBVERSION=${DEFAULT_LIBVERSION}
 PLIST_SUB+=	MAJORLIBVERSION=${DEFAULT_LIBVERSION:C/([0-9]).*/\1/1}
 
-.  if defined(USE_GNUSTEP)
-.    if ${USE_GNUSTEP:Mbase}
+.  if defined(USE_NGSTEP)
+.    if ${USE_NGSTEP:Mbase}
 LIB_DEPENDS+=	libgnustep-base.so:lang/ngstep-base
 .    endif
 
-.    if ${USE_GNUSTEP:Mbuild}
+.    if ${USE_NGSTEP:Mbuild}
 PATH:=	${GNUSTEP_SYSTEM_TOOLS}:${GNUSTEP_LOCAL_TOOLS}:${PATH}
 MAKE_ENV+=	PATH="${PATH}" GNUSTEP_MAKEFILES="${GNUSTEP_MAKEFILES}"
 # All GNUstep things installed from ports should be in the System domain.
@@ -79,11 +79,11 @@ BUILD_DEPENDS+=	gnustep-make>0:devel/ngstep-make
 .include "${USESDIR}/objc.mk"
 .    endif
 
-.    if ${USE_GNUSTEP:Mgui}
+.    if ${USE_NGSTEP:Mgui}
 LIB_DEPENDS+=	libgnustep-gui.so:x11-toolkits/ngstep-gui
 .    endif
 
-.    if ${USE_GNUSTEP:Mback}
+.    if ${USE_NGSTEP:Mback}
 BUILD_DEPENDS+=	gnustep-back>0:x11-toolkits/ngstep-back
 RUN_DEPENDS+=	gnustep-back>0:x11-toolkits/ngstep-back
 .    endif
