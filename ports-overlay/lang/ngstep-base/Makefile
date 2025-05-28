@@ -10,6 +10,10 @@ LICENSE=	GPLv3 LGPL3
 LICENSE_COMB=	multi
 CONFLICTS=	gnustep-base
 
+USE_GITHUB=	yes
+GH_ACCOUNT=	ngstep
+GH_TAGNAME=	198b18c
+
 GNUSTEP_PREFIX=	/
 
 LIB_DEPENDS=	libffi.so:devel/libffi \
@@ -20,27 +24,25 @@ LIB_DEPENDS=	libffi.so:devel/libffi \
 BUILD_DEPENDS=	${GNUSTEP_PREFIX}/System/Library/Makefiles/GNUstep.sh:devel/ngstep-make
 RUN_DEPENDS=	${GNUSTEP_PREFIX}/System/Library/Makefiles/GNUstep.sh:devel/ngstep-make
 
-GNU_CONFIGURE=	yes
 USES=		pkgconfig iconv gnome ngstep
 USE_GNOME=	libxml2 libxslt
 USE_NGSTEP=    build
 USE_LDCONFIG=	${GNUSTEP_SYSTEM_LIBRARIES}
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	ngstep
-GH_TAGNAME=	198b18c
+GNU_CONFIGURE=	yes
 
-CONFIGURE_ARGS=	--disable-procfs \
-		--with-installation-domain=SYSTEM \
-		--enable-objc-nonfragile-abi
+MAKE_FLAGS=	OPTFLAG="${CFLAGS}"
+CONFIGURE_ARGS= --disable-procfs \
+                --with-installation-domain=SYSTEM
+CONFIGURE_ENV=  OBJCFLAGS='-fobjc-runtime=gnustep-2.0 -fblocks' \
+                ac_cv_header_bfd_h=no ac_cv_lib_bfd_bfd_openr=no \
+				GNUSTEP_MAKEFILES=${GNUSTEP_PREFIX}/System/Library/Makefiles
+MAKE_ENV+=	OBJCFLAGS='-fobjc-runtime=gnustep-2.0 -fblocks' \
+			NGSTEP_INSTALLATION_DOMAIN=SYSTEM \
+			GNUSTEP_MAKEFILES=${GNUSTEP_PREFIX}/System/Library/Makefiles
 
-CONFIGURE_ENV=	OBJCFLAGS='-fobjc-runtime=gnustep-2.0 -fblocks' \
-		ac_cv_header_bfd_h=no ac_cv_lib_bfd_bfd_openr=no \
-		GNUSTEP_MAKEFILES=${GNUSTEP_PREFIX}/System/Library/Makefiles
-
-MAKE_ENV=	GNUSTEP_MAKEFILES=${GNUSTEP_PREFIX}/System/Library/Makefiles
-
-PLIST_SUB=	BASEVERSION=${DISTVERSION:R}
+GNU_CONFIGURE_PREFIX= ${GNUSTEP_PREFIX}
+NO_ARCH=	yes
 
 OPTIONS_DEFINE=		ICU GNUTLS
 OPTIONS_RADIO=		ZEROCONF
