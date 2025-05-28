@@ -75,7 +75,7 @@ MAKE_ENV+=	PATH="${PATH}" GNUSTEP_MAKEFILES="${GNUSTEP_MAKEFILES}"
 # conflicts.
 MAKE_ENV+=	GNUSTEP_INSTALLATION_DOMAIN=SYSTEM
 CONFIGURE_ENV+=	PATH="${PATH}" GNUSTEP_MAKEFILES="${GNUSTEP_MAKEFILES}"
-BUILD_DEPENDS+=	gnustep-make>0:devel/ngstep-make
+BUILD_DEPENDS+=	ngstep-make>0:devel/ngstep-make
 .include "${USESDIR}/objc.mk"
 .    endif
 
