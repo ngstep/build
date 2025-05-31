@@ -84,8 +84,8 @@ LIB_DEPENDS+=	libgnustep-gui.so:x11-toolkits/ngstep-gui
 .    endif
 
 .    if ${USE_NGSTEP:Mback}
-BUILD_DEPENDS+=	gnustep-back>0:x11-toolkits/ngstep-back
-RUN_DEPENDS+=	gnustep-back>0:x11-toolkits/ngstep-back
+BUILD_DEPENDS+=	ngstep-back>0:x11-toolkits/ngstep-back
+RUN_DEPENDS+=	ngstep-back>0:x11-toolkits/ngstep-back
 .    endif
 
 .  endif
